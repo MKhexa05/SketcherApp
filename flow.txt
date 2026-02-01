@@ -1,0 +1,98 @@
+src/
+│
+├── domain/
+│   ├── shapes/
+│   │   ├── Shape (abstract)
+│   │   ├── Line
+│   │   ├── Circle
+│   │   ├── Ellipse
+│   │   └── Polyline
+│   │
+│   ├── ShapeManager
+│   └── ShapeTypes / enums / value-objects
+│
+├── rendering/
+│   ├── Renderer (scene, camera, loop)
+│   ├── ShapeRenderer (abstract)
+│   ├── LineRenderer
+│   ├── CircleRenderer
+│   └── RendererRegistry
+│
+├── input/
+│   ├── InputManager
+│   ├── MouseHandler
+│   ├── ToolController
+│   └── ToolState
+│
+├── ui/
+│   ├── Toolbar
+│   ├── PropertyPanel
+│   ├── FileMenu
+│   └── UIEventBus
+│
+├── persistence/
+│   ├── FileManager
+│   ├── Serializer
+│   └── Deserializer
+│
+├── app/
+│   ├── App
+│   └── AppState
+│
+└── index.ts
+
+
+
+src/
+│
+├── domain/
+|   │
+|   ├──rendering/
+│   |    ├── SketcherRenderer (scene, camera, loop)
+│   |    ├── ShapeRenderer (abstract)
+│   |    ├── LineRenderer
+│   |    ├── CircleRenderer
+│   |    ├── EllipseRenderer
+│   |    └── RendererRegistry
+│   ├── shapes/
+│   │   ├── Shape (abstract)
+│   │   ├── Line
+│   │   ├── Circle
+│   │   ├── Ellipse
+│   │   └── Polyline
+│   │
+│   ├── ShapeManager
+│ 
+├── input/
+│   ├── Tools/
+│   │   ├── CreationTool (abstract)
+│   │   ├── LineTool
+│   │   ├── CircleTool
+│   │   ├── EllipseTool
+│   │   └── PolylineTool
+│   │   └── SelectTool
+│   ├── ToolManager
+│   ├── Tool (abstract)
+│   └── SelectionManager
+│
+├── ui/
+│   ├── Editors/
+│   │   ├── ColorPicker
+│   │   ├── NumberInput
+│   │   ├── PropertyEditor
+│   │   ├── Vector3Input
+│   │   └── Polyline
+│   ├── EditorRegistry
+│   ├── leftPanel(shapelist)
+│   └── RightPanel(PropertyPanel)
+│
+│
+└── main.ts
+
+
+
+ADDING X AND Y FOR LINE
+REMOVING THE HIDDEN OBJECTS FROM THE SELECTION LIST IN SelectTool
+ADDING A SMALL HELP/INSTRUCTIONS FOR EACH SELECTED Tool (done)
+CHANGING HIDE SHOW BUTTON ON RIGHT PANEL (done)
+RENDEDRING NAMES (ADDING STATIC COUNT FOR EACH NAME/TYPE) (done)

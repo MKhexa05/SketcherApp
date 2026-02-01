@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sketcher</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- FULLSCREEN CANVAS -->
+    <canvas class="webgl"></canvas>
+
+    <!-- TOP TOOLBAR -->
+    <div class="toolbar">
+      <button id="btn-select-tool">
+        <i class="fa-solid fa-arrow-pointer"></i>Select
+      </button>
+      <button id="btn-line-tool"><img src="/line.svg" alt="" />Line</button>
+      <button id="btn-circle-tool">
+        <i class="fa-regular fa-circle"></i>Circle
+      </button>
+      <button id="btn-ellipse-tool">
+        <img src="/ellipse.svg" alt="" />
+        Ellipse
+      </button>
+      <button id="btn-poyline-tool">
+        <i class="fa-solid fa-draw-polygon"></i>Polyline
+      </button>
+      <button id="btn-save">
+        <i class="fa-regular fa-floppy-disk"></i>Save
+      </button>
+      <input type="file" id="fileInput" accept=".json" hidden />
+      <button id="btn-upload"><i class="fa-solid fa-upload"></i>Upload</button>
+    </div>
+
+    <!-- LEFT PANEL -->
+    <div id="left-panel" class="panel left">
+      <h3>List of Created Object</h3>
+      <div class="shapes-list"></div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div id="right-panel" class="panel right">
+      <div class="placeholder">
+        ⓘ
+        <p>Select Your Shape</p>
+      </div>
+    </div>
+    <script type="module" src="./src/main.ts"></script>
+  </body>
+</html>
