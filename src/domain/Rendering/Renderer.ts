@@ -7,6 +7,7 @@ export class SketcherRenderer {
   camera: THREE.OrthographicCamera;
   renderer: THREE.WebGLRenderer;
   plane: THREE.Plane;
+  grid: THREE.GridHelper;
 
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
@@ -22,9 +23,22 @@ export class SketcherRenderer {
     controls.minZoom = 0.2;
     controls.maxZoom = 10;
 
+    this.grid = this.makeGrid();
+    this.scene.add(this.grid);
+
     this.plane = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
     this.renderer = this.makeRenderer();
     this.renderLoop();
+  }
+
+  toggleGrid() {
+    this.grid.visible = !this.grid.visible;
+  }
+
+  private makeGrid() {
+    const grid = new THREE.GridHelper(200, 200, "#cbd5e1", "#e5e7eb");
+    grid.rotation.x = Math.PI / 2;
+    return grid;
   }
 
   private getCamera() {
@@ -45,10 +59,6 @@ export class SketcherRenderer {
   private makeScene() {
     const scene = new THREE.Scene();
     scene.background = new THREE.Color("#f7f7f7");
-    const grid = new THREE.GridHelper(200, 200, "#cbd5e1", "#e5e7eb");
-    grid.rotation.x = Math.PI / 2;
-    scene.add(grid);
-
     return scene;
   }
 

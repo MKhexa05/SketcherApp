@@ -17,6 +17,7 @@ export class ToolBarController {
   private info = new InfoOverlay();
 
   constructor(private app: SkectcherApp) {
+    this.initGridToggle();
     this.tools = {
       line: {
         buttonId: "btn-line-tool",
@@ -43,6 +44,19 @@ export class ToolBarController {
     };
 
     this.bindUI();
+  }
+
+  private initGridToggle() {
+    const gridBtn = document.getElementById("btn-grid-toggle");
+    if (!gridBtn) return;
+
+    let visible = true;
+
+    gridBtn.addEventListener("click", () => {
+      visible = !visible;
+      this.app.renderer.toggleGrid();
+      gridBtn.classList.toggle("active", visible);
+    });
   }
 
   private bindUI() {
