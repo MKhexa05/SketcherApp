@@ -115,6 +115,7 @@ export class ShapeManager {
 
   private clear() {
     this.allShapes.clear();
+    this.renderer.clearScene();
   }
 
   private factoryFromJSON(data: any): Shape {

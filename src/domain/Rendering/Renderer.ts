@@ -101,4 +101,8 @@ export class SketcherRenderer {
     this.camera.bottom = -frustumHeight / 2;
     this.camera.updateProjectionMatrix();
   }
+
+  clearScene() {
+    this.scene.clear();
+  }
 }
