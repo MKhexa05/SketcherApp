@@ -126,6 +126,7 @@ export class PolylineTool extends CreationTool<PolylineShape> {
     this.previewLines.map((line) => line.geometry.dispose());
     this.previewLines = [];
     this.points = [];
+    this.previewInstantiated = false;
 
     return { completed: true, payload: line };
   }
