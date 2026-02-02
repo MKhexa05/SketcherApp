@@ -104,5 +104,6 @@ export class SketcherRenderer {
 
   clearScene() {
     this.scene.clear();
+    this.scene.add(this.grid);
   }
 }

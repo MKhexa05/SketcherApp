@@ -39,7 +39,7 @@ export class ShapeManager {
   remove(mesh: Object3D) {
     const shapeToDelete = this.allShapes.get(mesh.uuid);
     if (!shapeToDelete) {
-      console.log("no shape with this id");
+      // console.log("no shape with this id");
       return;
     }
 
@@ -55,7 +55,7 @@ export class ShapeManager {
   getByMesh(mesh: Object3D) {
     const requestedShape = this.allShapes.get(mesh.uuid);
     if (!requestedShape) {
-      console.log("no shape for this mesh");
+      // console.log("no shape for this mesh");
       return null;
     }
     return requestedShape.shape;
@@ -90,7 +90,7 @@ export class ShapeManager {
     if (mesh) {
       shapeRenderer.updateMesh(shape, mesh);
     } else {
-      console.log("no mesh for this shape");
+      // console.log("no mesh for this shape");
     }
     this.notify();
   }
