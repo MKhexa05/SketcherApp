@@ -69,6 +69,7 @@ export class ToolBarController {
   private activateTool(name: string) {
     if (this.activeTool == name) {
       this.deactivateAll();
+      this.activeTool = null;
       return;
     }
     this.deactivateAll();
@@ -91,5 +92,6 @@ export class ToolBarController {
     Object.values(this.tools).forEach(({ buttonId }) => {
       document.getElementById(buttonId)!.classList.remove("active");
     });
+    this.info.hide();
   }
 }
