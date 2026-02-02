@@ -29,7 +29,13 @@ export class CircleTool extends CreationTool<CircleShape> {
   onActivate(): void {}
 
   //      NOT SURE IF I SHOULD HAVE THIS
-  onDeactivate(): void {}
+  onDeactivate(): void {
+    if (this.isDrawing) {
+      this.endDraw = false;
+      this.isDrawing = false;
+      this.renderer.remove(this.previewCircle);
+    }
+  }
 
   //      NOT SURE IF I SHOULD HAVE THIS
   onCancel(): void {}

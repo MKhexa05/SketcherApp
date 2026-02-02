@@ -31,7 +31,16 @@ export class LineTool extends CreationTool<LineShape> {
   onActivate(): void {}
 
   //      NOT SURE IF I SHOULD HAVE THIS
-  onDeactivate(): void {}
+  onDeactivate(): void {
+    if (this.isDrawing) {
+      this.isDrawing = false;
+      this.drawinX = false;
+      this.drawinY = false;
+      this.endDraw = false;
+      this.renderer.remove(this.previewLine);
+      this.previewLine.geometry.dispose();
+    }
+  }
 
   //      NOT SURE IF I SHOULD HAVE THIS
   onCancel(): void {}
@@ -90,8 +99,8 @@ export class LineTool extends CreationTool<LineShape> {
 
     const line = new LineShape(start, endPoint, new THREE.Color("red"));
 
-    this.isDrawing = false;
     this.previewLine.geometry.attributes.position.needsUpdate = false;
+    this.isDrawing = false;
     this.drawinX = false;
     this.drawinY = false;
     this.endDraw = false;

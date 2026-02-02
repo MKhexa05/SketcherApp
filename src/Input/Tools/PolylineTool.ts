@@ -41,7 +41,19 @@ export class PolylineTool extends CreationTool<PolylineShape> {
   onActivate(): void {}
 
   //      NOT SURE IF I SHOULD HAVE THIS
-  onDeactivate(): void {}
+  onDeactivate(): void {
+    if (this.isDrawing) {
+      this.isDrawing = false;
+      this.drawinX = false;
+      this.drawinY = false;
+      this.endDraw = false;
+      this.previewLines.map((line) => this.renderer.remove(line));
+      this.previewLines.map((line) => line.geometry.dispose());
+      this.previewLines = [];
+      this.points = [];
+      this.previewInstantiated = false;
+    }
+  }
 
   //      NOT SURE IF I SHOULD HAVE THIS
   onCancel(): void {}
@@ -117,8 +129,8 @@ export class PolylineTool extends CreationTool<PolylineShape> {
 
     const line = new PolylineShape(this.points, new THREE.Color("red"));
 
-    this.isDrawing = false;
     this.previewLine.geometry.attributes.position.needsUpdate = false;
+    this.isDrawing = false;
     this.drawinX = false;
     this.drawinY = false;
     this.endDraw = false;

@@ -31,7 +31,13 @@ export class EllipseTool extends CreationTool<EllipseShape> {
   onActivate(): void {}
 
   //      NOT SURE IF I SHOULD HAVE THIS
-  onDeactivate(): void {}
+  onDeactivate(): void {
+    if (this.isDrawing) {
+      this.endDraw = false;
+      this.isDrawing = false;
+      this.renderer.remove(this.previewEllipse);
+    }
+  }
 
   //      NOT SURE IF I SHOULD HAVE THIS
   onCancel(): void {}

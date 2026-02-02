@@ -91,8 +91,5 @@ export class ToolBarController {
     Object.values(this.tools).forEach(({ buttonId }) => {
       document.getElementById(buttonId)!.classList.remove("active");
     });
-
-    this.app.toolManager.resetTool();
-    this.activeTool = null;
   }
 }
