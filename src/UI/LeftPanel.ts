@@ -43,7 +43,7 @@ export class ShapesListPanel {
       const label = document.createElement("span");
       label.className = "shape-label";
       label.textContent = `${shape.name}  `;
-      label.onclick = () => this.selectionManager.select(mesh);
+      item.onclick = () => this.selectionManager.select(mesh);
 
       // visibility button
       const eyeBtn = document.createElement("button");
